@@ -1,0 +1,49 @@
+resolver: lts-18.28 #lts-18.6
+compiler: ghc-8.10.7 #ghc-8.10.4
+
+packages:
+- .
+
+ghc-options:
+  "$locals": -funfolding-use-threshold=16 -fexcess-precision -optc-O3 -optc-ffast-math -threaded -O2 -rtsopts -with-rtsopts=-N # -v
+
+extra-deps:
+  - git: https://github.com/hasktorch/hasktorch.git
+    commit: d77e48c6ab7b356c0ad480f00b9092cb49f5a37f
+    subdirs:
+      - hasktorch
+      - libtorch-ffi
+      - libtorch-ffi-helper
+      - experimental/gradually-typed
+  - git: https://github.com/hasktorch/tokenizers.git
+    commit: 6094e71f5be83dd3bb82627aecfe15c71c42f4f1
+    subdirs:
+      - bindings/haskell/tokenizers-haskell
+  - github: AugustUnderground/hnutmeg
+    commit: cd6737a834c11d9ddd8523066b4fd10ce6def1b0
+  - github: AugustUnderground/hspectre
+    commit: 286e382b5f5c52c2d649b8665083b361914bbbad
+  - github: AugustUnderground/plotly-hs
+    commit: fd82fdc3c64d7d8d1df986423dc541d4baf062dd
+  - ihaskell-hvega-0.3.2.0@sha256:57b749f3c14b224af6f9484b2cd531299dd740477aa6e6f300f19a8c291b5fac,1182
+  - KMP-0.2.0.0@sha256:6dfbac03ef00ebd9347234732cb86a40f62ab5a80c0cc6bedb8eb51766f7df28,2562
+  - command-0.1.1@sha256:5232b98c195bc3b8a6f35c55ccd2fa424abe355ca54cfcd836bbe7e494834773,1110
+  - hmatrix-csv-0.1.0.2@sha256:687460573413dbb23ba3eeff95e9fac342a2d439db1006846767a095e7f23356,1031
+  - posix-pty-0.2.2@sha256:dd777df258b3b95fe01612c1204cde972ad1323c3289591ecc844ecb29e55e2b,1826
+  - indexed-extras-0.2@sha256:e7e498023e33016fe45467dfee3c1379862e7e6654a806a965958fa1adc00304,1349
+  - normaldistribution-1.1.0.3@sha256:2615b784c4112cbf6ffa0e2b55b76790290a9b9dff18a05d8c89aa374b213477,2160
+  - typelevel-rewrite-rules-1.0@sha256:ef52c302c56fad2c2da4fe1f59c91d432104383f9772cf28e9ff7d5ad254d4e2,2592
+  - term-rewriting-0.4.0.2@sha256:5412f6aa29c5756634ee30e8df923c83ab9f012a4b8797c460af3d7078466764,2740
+  - union-find-array-0.1.0.3@sha256:242e066ec516d61f262947e5794edc7bbc11fd538a0415c03ac0c01b028cfa8a,1372
+  - parallel-io-0.3.5@sha256:97db32eb84b3141f4957f6d208c0ef8adce647cbf68099417e93c7d9a45f9b35,3482
+  - moo-1.2@sha256:0c4be1a01548db785dcbbe6b8c98579dbf03c5b3b536e0420dce3ba6a61337cb,5951
+  - gray-code-0.3.1@sha256:2c8a4ed9c9ee37320305610604d6d93504e0813d7c9768949af418b53043185a,2388
+  - breakpoint-0.1.1.1@sha256:ce9a163ae6e228564e45596685566020bdf4b8042a0f155cba42fc1d974e06d2,1806
+
+extra-include-dirs:
+  - libtorch/include/torch/csrc/api/include
+  - libtorch/include
+
+extra-lib-dirs:
+  - ./libtorch/lib
+  - ./libtokenizers

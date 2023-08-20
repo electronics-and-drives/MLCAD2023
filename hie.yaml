@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "MLCAD23:lib"
+
+    - path: "./app/Main.hs"
+      component: "MLCAD23:exe:MLCAD23-exe"
+
+    - path: "./app/Paths_fuacide.hs"
+      component: "MLCAD23:exe:MLCAD23-exe"
+
+    - path: "./test"
+      component: "MLCAD23:test:MLCAD23-test"

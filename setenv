@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# TORCH
+[ -h "./libtorch" ] && TORCH_DIR="$(readlink ./libtorch)" || TORCH_DIR="./libtorch"
+export LD_LIBRARY_PATH="$TORCH_DIR/lib":$LD_LIBRARY_PATH
+export LIBRARY_PATH="$LIB_DIR/include":$LIBRARY_PATH
+
+# TOKENIZERS
+[ -h "./libtokenizers" ] && TOKEN_DIR="$(readlink ./libtokenizers)" || TOKEN_DIR="./libtokenizers"
+export LD_LIBRARY_PATH="$TOKEN_DIR":$LD_LIBRARY_PATH
+
+# CUDA
+CUDA_DIR="/usr/local/cuda"
+export PATH="$CUDA_DIR/bin":$PATH
+export LD_LIBRARY_PATH="$CUDA_DIR/lib64":$LD_LIBRARY_PATH
+export LIBRARY_PATH="$CUDA_DIR/include":$LIBRARY_PATH
+
+# HASKTORCH
+export DEVICE="cuda:1"
+
+# MLFLOW
+alias mlf='GUNICORN_CMD_ARGS="--timeout 600" mlflow server --port 6008 --host 0.0.0.0'
