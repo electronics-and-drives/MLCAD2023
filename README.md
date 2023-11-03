@@ -8,22 +8,25 @@ contribution. It requires a functioning setup of
 [libtorch](https://pytorch.org/cppdocs/installing.html), such that
 [HaskTorch](http://hasktorch.org/)
 can access it. Additionally,
-[Serafin](https://github.com/augustunderground/serafin) must
-be installed, such that circuits can be found in `~/.serafin`.
+[Serafin](https://github.com/augustunderground/serafin) and corresponding
+circuits must be installed, such that circuits can be found in `$HOME/.serafin`.
 
-## Paper
+## Publication
 
-_Awaiting conference proceedings_
+This paper is published as part of the 2023 ACM/IEEE 5th Workshop on
+Machine Learning for CAD (MLCAD) proceedings: [IEEE
+Xplore](https://ieeexplore.ieee.org/document/10299834)
 
 ```
-@INPROCEEDINGS{UMS23,
-    author    = {Uhlmann, Yannick and Moldenhauer, Till and Scheible, J\"{u}rgen},
-    booktitle = {2023 {ACM}/{IEEE} 5\textsuperscript{th} Workshop on Machine Learning for CAD (MLCAD)},
-    title     = {Differentiable Neural Network Surrogate Models for g\textsubscript{m}/I\textsubscript{D}-based Analog IC Sizing Optimization},
+@INPROCEEDINGS{10299834,
+    author    = {Uhlmann, Yannick and Moldenhauer, Till and Scheible, Jürgen},
+    booktitle = {2023 ACM/IEEE 5th Workshop on Machine Learning for CAD (MLCAD)},
+    title     = {Differentiable Neural Network Surrogate Models for gm/ID-based Analog IC Sizing Optimization},
     year      = {2023},
-    month     = {09},
-    pages     = {1--6},
-    doi       = {}
+    volume    = {},
+    number    = {},
+    pages     = {1-6},
+    doi       = {10.1109/MLCAD58807.2023.10299834}
 }
 ```
 
